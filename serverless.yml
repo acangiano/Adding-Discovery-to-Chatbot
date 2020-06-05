@@ -27,7 +27,7 @@ custom:
     environmentId: ENVIRONMENT_ID
     collectionId: COLLECTION_ID
     url: YOUR_DISCOVERY_URL
-    intent: faq # DO NOT CHANGE
+    intent: course_recommendation # DO NOT CHANGE
 
 resources:
   packages:
