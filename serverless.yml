@@ -1,0 +1,52 @@
+# Welcome to Serverless!
+#
+# This file is the main config file for your service.
+# It's very minimal at this point and uses default values.
+# You can always add more config options for more control.
+# We've included some commented out config examples here.
+# Just uncomment any of them to get that config option.
+#
+# For full config options, check the docs:
+#    docs.serverless.com
+#
+# Happy Coding!
+
+service: lab-4 # NOTE: update this with your service name
+
+# Remember to install project dependencies to register the provider plugin.
+# $ npm install
+provider:
+  name: openwhisk
+  runtime: nodejs:10
+
+custom:
+  package: lab4
+  discovery:
+    username: YOUR_USERNAME
+    password: YOUR_DISCOVERY_PASSWORD
+    environmentId: ENVIRONMENT_ID
+    collectionId: COLLECTION_ID
+    url: YOUR_DISCOVERY_URL
+    intent: course_recommendation # DO NOT CHANGE
+
+resources:
+  packages:
+    main:
+      name: ${self:custom.package}
+
+functions:
+  connectDiscovery:
+    handler: CourseAdvisor.connectDiscovery
+    name: ${self:custom.package}/connectDiscovery
+    parameters:
+      discoveryUsername: ${self:custom.discovery.username}
+      discoveryPassword: ${self:custom.discovery.password}
+      environmentId: ${self:custom.discovery.environmentId}
+      collectionId: ${self:custom.discovery.collectionId}
+      url: ${self:custom.discovery.url}
+      intent: ${self:custom.discovery.intent}
+
+# extend the framework using plugins listed here:
+# https://github.com/serverless/plugins
+plugins:
+  - serverless-openwhisk

@@ -1,0 +1,20 @@
+{
+  "name": "openwhisk-nodejs",
+  "version": "1.0.0",
+  "author": "Sophia Jiwho Choi",
+  "description": "Sample Coursera Course Advisor chatbot service with IBM Discovery, OpenWhisk NodeJS serverless framework ",
+  "main": "CourseAdvisor.js",
+  "keywords": [
+    "serverless",
+    "openwhisk",
+    "nodejs",
+    "watson",
+    "discovery"
+  ],
+  "devDependencies": {
+    "serverless-openwhisk": ">=0.13.0"
+  },
+  "dependencies": {
+    "ibm-watson": "^4.1.3"
+  }
+}
